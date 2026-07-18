@@ -1,0 +1,1 @@
+{"main-window":{"identifier":"main-window","description":"Only the bundled Sofiie main window can invoke the allowlisted desktop command.","local":true,"windows":["main"],"permissions":["core:default","allow-execute-desktop-action"]}}
