@@ -1,0 +1,15 @@
+{
+  "name": "@sofiie/desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tauri build --config src-tauri/tauri.conf.json",
+    "dev": "tauri dev --config src-tauri/tauri.conf.json",
+    "lint": "cargo fmt --manifest-path src-tauri/Cargo.toml -- --check",
+    "test": "cargo test --manifest-path src-tauri/Cargo.toml --locked"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.8.0"
+  }
+}

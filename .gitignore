@@ -1,0 +1,91 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Build outputs
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+src-tauri/target/
+target/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+secrets/
+private/
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+
+# Owner/device private data
+data/private/
+data/voiceprints/
+data/recordings/
+runtime/
+voiceprint*.json
+owner-profile*.json
+device-keys*.json
+
+# Local Codex/agent instructions and session artifacts
+AGENTS.md
+AGENTS.local.md
+.agents
+.agents/
+.codex/
+.codex-cache/
+.codex-tmp/
+
+# Temporary files and generated reports
+tmp/
+temp/
+.tmp/
+.cache/
+logs/
+reports/local/
+artifacts/local/
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+*.log
+*.pid
+*.seed
+*.swp
+*.swo
+*~
+
+# Local audio/model experiments
+experiments/local/
+models/local/
+recordings/
+
+# Test and tool caches
+.nyc_output/
+.vitest/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# IDEs and operating systems
+.idea/
+.vscode/
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local deployment/tool state
+.render/
+.vercel/
+.netlify/
+.tauri/

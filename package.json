@@ -1,0 +1,35 @@
+{
+  "name": "sofiie",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@10.8.2",
+  "engines": {
+    "node": ">=20.19.0 <23"
+  },
+  "workspaces": [
+    "backend",
+    "frontend",
+    "desktop"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "build:desktop": "npm run build --workspace desktop",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:desktop": "npm run lint --workspace desktop",
+    "test": "npm run test --workspace backend && npm run test --workspace frontend",
+    "test:desktop": "npm run test --workspace desktop",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.38.0"
+  }
+}

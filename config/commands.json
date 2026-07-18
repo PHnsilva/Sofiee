@@ -1,0 +1,162 @@
+{
+  "version": 1,
+  "riskLevels": ["public", "private", "sensitive", "critical"],
+  "commands": [
+    {
+      "id": "system.change_personality",
+      "intent": "change_personality",
+      "name": "Alterar personalidade",
+      "description": "Troca a personalidade ativa neste dispositivo.",
+      "category": "system",
+      "risk": "public",
+      "phrases": ["mudar personalidade", "trocar personalidade", "usar personalidade"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "system.car_on",
+      "intent": "enable_car_mode",
+      "name": "Ativar modo carro",
+      "description": "Ativa controles maiores e a política restrita do modo carro.",
+      "category": "system",
+      "risk": "public",
+      "phrases": ["ativar modo carro", "ligar modo carro", "modo carro"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "system.car_off",
+      "intent": "disable_car_mode",
+      "name": "Desativar modo carro",
+      "description": "Retorna à interface e à política normais.",
+      "category": "system",
+      "risk": "public",
+      "phrases": ["desativar modo carro", "desligar modo carro", "sair do modo carro"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "desktop.open_vscode",
+      "intent": "open_vscode",
+      "name": "Abrir VS Code",
+      "description": "Solicita à bridge desktop que abra o VS Code.",
+      "category": "desktop",
+      "risk": "private",
+      "phrases": ["abrir vs code", "abrir vscode", "iniciar vs code"],
+      "availableInCar": false,
+      "requiresDesktop": true,
+      "enabled": true
+    },
+    {
+      "id": "desktop.open_spotify",
+      "intent": "open_spotify",
+      "name": "Abrir Spotify",
+      "description": "Solicita à bridge desktop que abra o Spotify.",
+      "category": "desktop",
+      "risk": "private",
+      "phrases": ["abrir spotify", "iniciar spotify", "tocar spotify"],
+      "availableInCar": true,
+      "requiresDesktop": true,
+      "enabled": true
+    },
+    {
+      "id": "desktop.open_browser",
+      "intent": "open_browser",
+      "name": "Abrir navegador",
+      "description": "Solicita à bridge desktop que abra o navegador padrão.",
+      "category": "desktop",
+      "risk": "private",
+      "phrases": ["abrir navegador", "abrir browser", "iniciar navegador"],
+      "availableInCar": false,
+      "requiresDesktop": true,
+      "enabled": true
+    },
+    {
+      "id": "desktop.open_project",
+      "intent": "open_project",
+      "name": "Abrir projeto configurado",
+      "description": "Abre somente a pasta definida na bridge por SOFIIE_PROJECT_PATH.",
+      "category": "desktop",
+      "risk": "sensitive",
+      "phrases": ["abrir projeto", "abrir pasta do projeto", "abrir projeto configurado"],
+      "availableInCar": false,
+      "requiresDesktop": true,
+      "enabled": true
+    },
+    {
+      "id": "desktop.git_status",
+      "intent": "git_status",
+      "name": "Consultar Git status",
+      "description": "Consulta o estado Git somente no projeto configurado na bridge.",
+      "category": "developer",
+      "risk": "sensitive",
+      "phrases": ["git status", "verificar git", "status do git", "estado do git"],
+      "availableInCar": false,
+      "requiresDesktop": true,
+      "enabled": true
+    },
+    {
+      "id": "system.health",
+      "intent": "backend_health",
+      "name": "Verificar backend",
+      "description": "Confirma que a API está disponível.",
+      "category": "system",
+      "risk": "public",
+      "phrases": ["verificar backend", "status do backend", "saude do backend", "backend online"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "client.repeat_last",
+      "intent": "repeat_last",
+      "name": "Repetir última resposta",
+      "description": "Repete a última resposta mantida somente na memória do cliente.",
+      "category": "conversation",
+      "risk": "public",
+      "phrases": ["repetir", "repita", "repetir ultima resposta", "diga novamente"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "client.clear_session",
+      "intent": "clear_session",
+      "name": "Limpar sessão",
+      "description": "Descarta a resposta atual e qualquer estado efêmero do cliente.",
+      "category": "conversation",
+      "risk": "public",
+      "phrases": ["limpar sessao", "limpar conversa", "esquecer conversa", "nova sessao"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "system.list_commands",
+      "intent": "list_commands",
+      "name": "Listar comandos",
+      "description": "Lista os comandos determinísticos disponíveis.",
+      "category": "system",
+      "risk": "public",
+      "phrases": ["listar comandos", "mostrar comandos", "quais comandos", "ajuda"],
+      "availableInCar": true,
+      "requiresDesktop": false,
+      "enabled": true
+    },
+    {
+      "id": "desktop.git_push",
+      "intent": "git_push",
+      "name": "Git push",
+      "description": "Comando crítico reservado e não executado pela bridge do MVP.",
+      "category": "developer",
+      "risk": "critical",
+      "phrases": ["git push", "enviar commits"],
+      "availableInCar": false,
+      "requiresDesktop": true,
+      "enabled": false
+    }
+  ]
+}

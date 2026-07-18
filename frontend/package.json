@@ -1,0 +1,22 @@
+{
+  "name": "@sofiie/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite --host 0.0.0.0",
+    "lint": "eslint src tests vite.config.ts vitest.config.ts",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.8.0",
+    "lucide": "^0.468.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "expressions": [
+    { "id": "idle", "label": "Pronta" },
+    { "id": "listening", "label": "Ouvindo" },
+    { "id": "processing", "label": "Pensando" },
+    { "id": "speaking", "label": "Falando" },
+    { "id": "success", "label": "Concluído" },
+    { "id": "warning", "label": "Atenção" },
+    { "id": "error", "label": "Erro" },
+    { "id": "sleeping", "label": "Em repouso" }
+  ]
+}
