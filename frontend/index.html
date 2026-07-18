@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#171a1d" />
+    <meta name="description" content="Sofiie, assistente pessoal por texto e voz." />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <title>Sofiie</title>
+  </head>
+  <body>
+    <div class="app-shell" id="app">
+      <header class="topbar">
+        <div class="brand" aria-label="Sofiie">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i></span>
+          <span>SOFIIE</span>
+        </div>
+
+        <div class="topbar-actions">
+          <button
+            class="icon-button"
+            id="commandsButton"
+            type="button"
+            aria-label="Comandos disponíveis"
+            title="Comandos disponíveis"
+          >
+            <i data-lucide="list"></i>
+          </button>
+          <button
+            class="icon-button"
+            id="settingsButton"
+            type="button"
+            aria-label="Configurar acesso"
+            title="Configurar acesso"
+          >
+            <i data-lucide="key-round"></i>
+          </button>
+          <div class="connection" id="connectionStatus" role="status" aria-live="polite">
+            <span class="status-dot"></span>
+            <span id="connectionLabel">Conectando</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="assistant-stage" aria-label="Expressão da assistente">
+          <div class="eyes" id="eyes" data-expression="sleeping" aria-hidden="true">
+            <div class="eye eye-left">
+              <span class="iris"
+                ><span class="pupil"><span class="glint"></span></span
+              ></span>
+              <span class="lid upper-lid"></span>
+              <span class="lid lower-lid"></span>
+            </div>
+            <div class="eye eye-right">
+              <span class="iris"
+                ><span class="pupil"><span class="glint"></span></span
+              ></span>
+              <span class="lid upper-lid"></span>
+              <span class="lid lower-lid"></span>
+            </div>
+          </div>
+          <div class="state-readout">
+            <span class="state-line"></span>
+            <span id="stateLabel">Em repouso</span>
+            <span class="state-line"></span>
+          </div>
+        </section>
+
+        <section class="response-panel" aria-label="Resposta atual">
+          <div class="response-meta">
+            <span id="responseSource">Sofiie</span>
+            <button
+              class="icon-button compact"
+              id="speechToggle"
+              type="button"
+              aria-label="Desativar voz"
+              title="Desativar voz"
+            >
+              <i id="volumeOnIcon" data-lucide="volume-2" class="volume-on"></i>
+              <i id="volumeOffIcon" data-lucide="volume-x" class="volume-off is-hidden"></i>
+            </button>
+          </div>
+          <p class="response-text" id="responseText" aria-live="polite">Pronta para começar.</p>
+        </section>
+
+        <section class="control-zone" aria-label="Controles da assistente">
+          <div class="preferences-row">
+            <label class="select-field" for="personalitySelect">
+              <span>Personalidade</span>
+              <select id="personalitySelect" aria-label="Personalidade atual">
+                <option value="focused">Focada</option>
+              </select>
+            </label>
+
+            <label class="mode-toggle" for="carModeToggle">
+              <span class="mode-icon" aria-hidden="true"><i data-lucide="car-front"></i></span>
+              <span>Modo carro</span>
+              <input id="carModeToggle" type="checkbox" />
+              <span class="toggle-track" aria-hidden="true"><span></span></span>
+            </label>
+          </div>
+
+          <form class="composer" id="composer">
+            <label class="visually-hidden" for="messageInput">Mensagem</label>
+            <input
+              id="messageInput"
+              name="message"
+              type="text"
+              maxlength="1000"
+              autocomplete="off"
+              placeholder="Fale ou digite um comando"
+            />
+            <button
+              class="composer-button mic-button"
+              id="microphoneButton"
+              type="button"
+              aria-label="Segure para falar"
+              title="Segure para falar"
+            >
+              <i data-lucide="mic"></i>
+            </button>
+            <button
+              class="composer-button send-button"
+              id="sendButton"
+              type="submit"
+              aria-label="Enviar mensagem"
+              title="Enviar mensagem"
+            >
+              <i data-lucide="send-horizontal"></i>
+            </button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="accessDialog" class="app-dialog">
+      <form method="dialog" id="accessForm">
+        <div class="dialog-header">
+          <div>
+            <span class="dialog-kicker">Dispositivo</span>
+            <h2>Chave de acesso</h2>
+          </div>
+          <button
+            class="icon-button"
+            id="closeAccessButton"
+            type="button"
+            aria-label="Fechar"
+            title="Fechar"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <label class="text-field" for="accessKeyInput">
+          <span>Bearer key</span>
+          <input
+            id="accessKeyInput"
+            type="password"
+            minlength="32"
+            maxlength="512"
+            autocomplete="off"
+            required
+          />
+        </label>
+        <div class="dialog-actions">
+          <button class="text-button secondary" id="clearAccessButton" type="button">
+            <i data-lucide="trash-2"></i>
+            Limpar
+          </button>
+          <button class="text-button primary" value="default" type="submit">
+            <i data-lucide="check"></i>
+            Usar nesta sessão
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="pinDialog" class="app-dialog">
+      <form method="dialog" id="pinForm">
+        <div class="dialog-header">
+          <div>
+            <span class="dialog-kicker">Confirmação</span>
+            <h2>PIN do proprietário</h2>
+          </div>
+          <button
+            class="icon-button"
+            id="closePinButton"
+            type="button"
+            aria-label="Cancelar"
+            title="Cancelar"
+          >
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <p class="dialog-message" id="pinCommandLabel">Comando sensível</p>
+        <label class="text-field" for="pinInput">
+          <span>PIN</span>
+          <input
+            id="pinInput"
+            type="password"
+            inputmode="numeric"
+            pattern="[0-9]{4,12}"
+            minlength="4"
+            maxlength="12"
+            autocomplete="off"
+            required
+          />
+        </label>
+        <div class="dialog-actions">
+          <button class="text-button secondary" value="cancel" type="button" id="cancelPinButton">
+            Cancelar
+          </button>
+          <button class="text-button warning" value="default" type="submit">
+            <i data-lucide="shield-check"></i>
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="commandsDialog" class="app-dialog commands-dialog">
+      <div class="dialog-header">
+        <div>
+          <span class="dialog-kicker">Catálogo</span>
+          <h2>Comandos disponíveis</h2>
+        </div>
+        <button class="icon-button" id="closeCommandsButton" aria-label="Fechar" title="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="command-list" id="commandList"></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

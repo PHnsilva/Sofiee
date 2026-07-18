@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sofiie">
+  <rect width="512" height="512" rx="96" fill="#171a1d"/>
+  <ellipse cx="168" cy="248" rx="112" ry="86" fill="#f7f9f9" stroke="#ff6b57" stroke-width="18"/>
+  <ellipse cx="344" cy="248" rx="112" ry="86" fill="#f7f9f9" stroke="#0f766e" stroke-width="18"/>
+  <circle cx="188" cy="252" r="42" fill="#171a1d"/>
+  <circle cx="324" cy="252" r="42" fill="#171a1d"/>
+  <circle cx="202" cy="236" r="10" fill="#f7f9f9"/>
+  <circle cx="338" cy="236" r="10" fill="#f7f9f9"/>
+</svg>

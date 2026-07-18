@@ -1,0 +1,18 @@
+{
+  "name": "Sofiie",
+  "short_name": "Sofiie",
+  "description": "Assistente pessoal por texto e voz.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e7ecec",
+  "theme_color": "#171a1d",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
