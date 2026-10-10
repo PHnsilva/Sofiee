@@ -25,7 +25,7 @@ Chrome/Edge oferecem o suporte mais amplo à Web Speech API. Quando STT ou TTS n
 Na raiz do repositório:
 
 ```bash
-npm install
+npm ci
 npm run dev:frontend
 ```
 
@@ -42,6 +42,7 @@ Edite somente `VITE_API_BASE_URL`. Essa variável é pública; nunca coloque cha
 ```bash
 npm run lint --workspace frontend
 npm run typecheck --workspace frontend
+npm test --workspace frontend
 npm run build --workspace frontend
 ```
 
