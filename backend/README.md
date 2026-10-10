@@ -49,7 +49,7 @@ Copie `backend/.env.example` para `backend/.env` e substitua todos os placeholde
 Gere o hash do PIN:
 
 ```bash
-npm run security:hash-pin --workspace backend -- <PIN_NUMERICO>
+npm run security:hash-pin --workspace backend -- SEU_PIN_NUMERICO
 ```
 
 Nenhuma chave é enviada por endpoint ou incluída no frontend. Se Gemini for selecionado sem chave, `createModelProvider` escolhe mock. Falha/timeout do Gemini também retorna pelo mock sem expor erro do provedor ao browser.
@@ -59,7 +59,7 @@ Nenhuma chave é enviada por endpoint ou incluída no frontend. Se Gemini for se
 Na raiz:
 
 ```bash
-npm install
+npm ci
 npm run dev:backend
 ```
 
