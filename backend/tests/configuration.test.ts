@@ -12,6 +12,45 @@ const validEnvironment: NodeJS.ProcessEnv = {
 };
 
 describe('configuration', () => {
+  it('rejects a signing secret reused as the owner access key without leaking it', () => {
+    const sharedSecret = validEnvironment.OWNER_ACCESS_KEY;
+    expect(() =>
+      parseEnvironment({ ...validEnvironment, AUTH_SIGNING_SECRET: sharedSecret }),
+    ).toThrow('OWNER_ACCESS_KEY and AUTH_SIGNING_SECRET must be different.');
+    try {
+      parseEnvironment({ ...validEnvironment, AUTH_SIGNING_SECRET: sharedSecret });
+    } catch (error) {
+      expect(String(error)).not.toContain(sharedSecret);
+    }
+  });
+
+  it('defaults to no trusted proxies and accepts explicit IPv4 and IPv6 ranges', () => {
+    expect(parseEnvironment(validEnvironment).trustedProxyCidrs).toEqual([]);
+    expect(
+      parseEnvironment({
+        ...validEnvironment,
+        TRUSTED_PROXY_CIDRS: ' 127.0.0.1, 10.20.0.0/16, ::1, fd00::/64 ',
+      }).trustedProxyCidrs,
+    ).toEqual(['127.0.0.1', '10.20.0.0/16', '::1', 'fd00::/64']);
+  });
+
+  it.each([
+    'true',
+    '*',
+    '1',
+    '0.0.0.0/0',
+    '::/0',
+    '10.0.0.1/33',
+    '::1/129',
+    'proxy.example',
+    '10.0.0.1/',
+    '10.0.0.1/8/2',
+  ])('rejects unsafe or malformed proxy configuration: %s', (proxy) => {
+    expect(() => parseEnvironment({ ...validEnvironment, TRUSTED_PROXY_CIDRS: proxy })).toThrow(
+      'TRUSTED_PROXY_CIDRS',
+    );
+  });
+
   it('loads the complete versioned public configuration', () => {
     const config = loadPublicConfiguration();
     expect(config.personalities.map(({ id }) => id)).toEqual([

@@ -1,3 +1,5 @@
+import { isIP } from 'node:net';
+
 import { z } from 'zod';
 
 const placeholderPattern = /^(replace-|generate-|change-me)/i;
@@ -26,6 +28,7 @@ const EnvironmentSchema = z
     PORT: z.coerce.number().int().min(1).max(65_535).default(3_000),
     RATE_LIMIT_MAX: z.coerce.number().int().min(10).max(1_000).default(60),
     REQUEST_TIMEOUT_MS: z.coerce.number().int().min(1_000).max(120_000).default(30_000),
+    TRUSTED_PROXY_CIDRS: z.string().default(''),
   })
   .passthrough();
 
@@ -46,10 +49,31 @@ export interface AppConfig {
   readonly port: number;
   readonly rateLimitMax: number;
   readonly requestTimeoutMs: number;
+  readonly trustedProxyCidrs: readonly string[];
 }
 
 export function parseEnvironment(environment: NodeJS.ProcessEnv): AppConfig {
   const parsed = EnvironmentSchema.parse(environment);
+  if (parsed.OWNER_ACCESS_KEY === parsed.AUTH_SIGNING_SECRET) {
+    throw new Error('OWNER_ACCESS_KEY and AUTH_SIGNING_SECRET must be different.');
+  }
+
+  const trustedProxyCidrs = parsed.TRUSTED_PROXY_CIDRS.split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+  for (const entry of trustedProxyCidrs) {
+    const [address = '', prefix, extra] = entry.split('/');
+    const family = isIP(address);
+    const maxPrefix = family === 4 ? 32 : 128;
+    if (
+      family === 0 ||
+      extra !== undefined ||
+      (prefix !== undefined &&
+        (!/^\d+$/.test(prefix) || Number(prefix) < 1 || Number(prefix) > maxPrefix))
+    ) {
+      throw new Error('TRUSTED_PROXY_CIDRS must contain explicit IP addresses or bounded CIDRs.');
+    }
+  }
   const allowedOrigins = parsed.ALLOWED_ORIGINS.split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);
@@ -86,5 +110,6 @@ export function parseEnvironment(environment: NodeJS.ProcessEnv): AppConfig {
     port: parsed.PORT,
     rateLimitMax: parsed.RATE_LIMIT_MAX,
     requestTimeoutMs: parsed.REQUEST_TIMEOUT_MS,
+    trustedProxyCidrs,
   };
 }
