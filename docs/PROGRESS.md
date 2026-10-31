@@ -2,7 +2,8 @@
 
 ## 31/10/2026: Sprint 1, configuração e dependências
 
-Issue: [#2](https://github.com/PHnsilva/Sofiie/issues/2). Branch: `fix/2026-10-30-security-config`. Base: `origin/main`, `f4fa50e`.
+Issue: [#2](https://github.com/PHnsilva/Sofiie/issues/2). Branch: `fix/2026-10-31-security-config`. Base: `origin/main`, `f4fa50e`.
+PR: [#3](https://github.com/PHnsilva/Sofiie/pull/3), aberto para revisão em `main`.
 
 ### Implementado
 
@@ -12,9 +13,22 @@ Issue: [#2](https://github.com/PHnsilva/Sofiie/issues/2). Branch: `fix/2026-10-3
 - Guia de configuração de proxy e consequências para rate limiting em `SECURITY_CONFIGURATION.md`.
 - Regressões para segredo reutilizado, configuração IPv4/IPv6 e limites de requisição diante de cabeçalhos forjados, inclusive cadeia de proxies.
 
-### Estado de aceite
+### Verificado
 
-Implementado e validado no branch; PR desta entrega em preparação em 31/10. Ainda não integrado nem aceito. O PR #1, de documentação, foi preservado. Nenhum deploy foi executado.
+- Com Node 22/npm 10: instalação limpa, 37 testes (35 backend e 2 frontend), lint, checagem TypeScript, builds de API e web, Prettier com fim de linha automático e `git diff --check` passaram.
+- O PR não apresenta verificações de CI registradas. A validação acima foi local; não houve deploy nem teste em produção.
+
+### Aguardando revisão
+
+Implementado e validado localmente. O PR #3 está aberto para revisão humana; o PR #1, somente de documentação, foi preservado.
+
+### Integrado
+
+Não. Aguardando decisão de revisão; nenhuma alteração foi integrada em `main`.
+
+### Aceito
+
+Não. O aceite depende da revisão humana e da validação do ambiente implantado.
 
 ### Limitações e pendências
 
