@@ -59,3 +59,17 @@ Pedido de rotina: diariamente às 6h de America/Sao_Paulo, a partir de 02/11/202
 [PR #1](https://github.com/PHnsilva/Sofiie/pull/1) de READMEs e [PR #3](https://github.com/PHnsilva/Sofiie/pull/3) de segurança permanecem independentes e abertos. A issue #2 foi refinada, sem reimplementar a correção. #5 prepara ambiente compatível; #6 trata a auditoria remanescente na base de segurança.
 
 Foi encontrado Node 24.19/npm 11 no D:. O produto declara Node >=20.19 <23/npm 10; nenhuma validação do produto em runtime incompatível é anunciada nesta organização.
+
+## Decisão de integração MCP e foco das melhorias
+
+Decisão do proprietário em 01/11/2026: Sofiie e Velumbra atuarão como hosts, cada um com seu cliente MCP, consumindo a interface servidora do Sofiie Agents. Não criar servidores próprios nem repositórios adicionais de MCP para esses dois consumidores nesta etapa.
+
+O Sofiie Agents manterá seu servidor MCP como adaptador da própria arquitetura e também poderá atuar como host/cliente de servidores MCP externos quando uma tarefa exigir ferramentas ou recursos deles. Um agente futuro consumir as especializações do Agents usa o lado servidor do Agents; o cliente de saída só é necessário quando o Agents consome algo externo. Não ativar conexões externas sem consumidor, contrato e configuração definidos.
+
+Priorizar nas melhorias diárias especializações com aplicação concreta nos dois produtos:
+
+- Velumbra: interpretação contextual de perguntas e tiragens, conteúdo e diferenças entre tradições, coerência das respostas e avaliação de qualidade; complementar com interface, acessibilidade e testes.
+- Sofiie: interpretação de intenções em português, diálogo por texto/voz, planejamento e seleção de ações estruturadas, integrações desktop/mobile/carro e validação de execução.
+- Compartilhadas: contratos de ferramentas/MCP, QA, acessibilidade e avaliação de regressões.
+
+Cada melhoria deve ter cenário de uso, entrada/saída, limites e evidência comparável. Especialistas novos exigem necessidade concreta; não ampliar o catálogo apenas por quantidade. Esta decisão orienta o backlog, não declara clientes integrados, inferência homologada ou rotinas agendadas.
