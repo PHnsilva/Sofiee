@@ -13,3 +13,8 @@
 - Gasto adicional autorizado: R$ 0. Não contratar APIs, serviços ou planos. Não publicar chaves, PIN, conversas pessoais ou arquivos `.env`.
 - Validar no runtime declarado: formatação, lint, tipos, testes e build proporcionais à mudança. Mudança de desktop exige fronteiras Rust/Tauri e Windows real; interface exige teclado e inspeção em desktop/celular. Distinguir mocks de integração e não repetir resultado antigo como atual.
 - Deixe a retomada reproduzível: issue, branch/PR, SHA, implementado, validado, em revisão, integrado, aceito, bloqueio e próxima ação.
+
+## Prioridade aprovada para as próximas retomadas
+
+- Ler `docs/DAILY_PLAN.md` e a decisão de hosts/clientes antes de selecionar a próxima entrega. Priorizar especializações aplicáveis ao Sofiie/Velumbra e seus contratos/avaliações, respeitando dependências e as alterações do proprietário no Kanban. Não criar servidores MCP nos consumidores.
+- O cronograma no aplicativo é uma configuração separada; registrar seu identificador e conferir o próximo disparo antes de declarar a rotina ativa.

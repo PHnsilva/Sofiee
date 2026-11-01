@@ -16,14 +16,14 @@ Escopos e sprints serão discutidos com Pedro um projeto por vez, com Velumbra p
 
 ## Fluxo
 
-| Fase | Critério |
-| --- | --- |
-| Backlog | Necessidade registrada; podem faltar refinamento ou decisões. |
-| Pronto | Escopo, aceite e validação claros; pré-requisitos disponíveis. |
+| Fase         | Critério                                                              |
+| ------------ | --------------------------------------------------------------------- |
+| Backlog      | Necessidade registrada; podem faltar refinamento ou decisões.         |
+| Pronto       | Escopo, aceite e validação claros; pré-requisitos disponíveis.        |
 | Em andamento | Entrega selecionada; limite inicial de uma implementação por projeto. |
-| Em revisão | PR/artefato concreto e evidências disponíveis para Pedro revisar. |
-| Em validação | Revisão realizada; falta aceite no ambiente ou experiência alvo. |
-| Concluído | Critérios, integração e aceite humano comprovados. |
+| Em revisão   | PR/artefato concreto e evidências disponíveis para Pedro revisar.     |
+| Em validação | Revisão realizada; falta aceite no ambiente ou experiência alvo.      |
+| Concluído    | Critérios, integração e aceite humano comprovados.                    |
 
 Bloqueios preservam a fase e registram motivo, quem resolve, próxima ação e evidência de desbloqueio. O número da issue não define ordem técnica. Agrupamento/subissue não substitui dependência.
 
@@ -31,16 +31,16 @@ Automações de fechar issue, mover por vínculo de PR e mover por merge foram r
 
 ## Contratos e dependências iniciais
 
-| Issue | Pré-requisitos/decisões |
-| --- | --- |
-| [#2](https://github.com/PHnsilva/Sofiie/issues/2) | Sem bloqueio técnico registrado; consultar o contrato atual da issue. |
-| [#4](https://github.com/PHnsilva/Sofiie/issues/4) | Sem bloqueio técnico registrado; consultar o contrato atual da issue. |
-| [#5](https://github.com/PHnsilva/Sofiie/issues/5) | Sem bloqueio técnico registrado; consultar o contrato atual da issue. |
-| [#6](https://github.com/PHnsilva/Sofiie/issues/6) | Bloqueada por #2, #5. Consumir a base de segurança e preparar runtime compatível. |
-| [#7](https://github.com/PHnsilva/Sofiie/issues/7) | Bloqueada por #5. Definir o primeiro resultado de produto com Pedro após as conexões. |
-| [#8](https://github.com/PHnsilva/Sofiie/issues/8) | Bloqueada por #2, #5. Definir integração desktop/mobile/carro e preparar ambiente. |
-| [#9](https://github.com/PHnsilva/Sofiie/issues/9) | Decidir necessidade e contrato de memória antes de persistir. |
-| [#10](https://github.com/PHnsilva/Sofiie/issues/10) | Definir papéis MCP e reutilização do servidor existente antes de implementar. |
+| Issue                                               | Pré-requisitos/decisões                                                               |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [#2](https://github.com/PHnsilva/Sofiie/issues/2)   | Sem bloqueio técnico registrado; consultar o contrato atual da issue.                 |
+| [#4](https://github.com/PHnsilva/Sofiie/issues/4)   | Sem bloqueio técnico registrado; consultar o contrato atual da issue.                 |
+| [#5](https://github.com/PHnsilva/Sofiie/issues/5)   | Sem bloqueio técnico registrado; consultar o contrato atual da issue.                 |
+| [#6](https://github.com/PHnsilva/Sofiie/issues/6)   | Bloqueada por #2, #5. Consumir a base de segurança e preparar runtime compatível.     |
+| [#7](https://github.com/PHnsilva/Sofiie/issues/7)   | Bloqueada por #5. Definir o primeiro resultado de produto com Pedro após as conexões. |
+| [#8](https://github.com/PHnsilva/Sofiie/issues/8)   | Bloqueada por #2, #5. Definir integração desktop/mobile/carro e preparar ambiente.    |
+| [#9](https://github.com/PHnsilva/Sofiie/issues/9)   | Decidir necessidade e contrato de memória antes de persistir.                         |
+| [#10](https://github.com/PHnsilva/Sofiie/issues/10) | Definir papéis MCP e reutilização do servidor existente antes de implementar.         |
 
 Dependências técnicas foram registradas nativamente no GitHub quando há consumo real de um pré-requisito. O campo Bloqueio destaca também decisões/impedimentos externos. As issues seguem contexto/evidência, resultado esperado, escopo, critérios de aceite, validação e dependências; o template ajuda na captura e não substitui refinamento.
 
@@ -73,3 +73,7 @@ Priorizar nas melhorias diárias especializações com aplicação concreta nos 
 - Compartilhadas: contratos de ferramentas/MCP, QA, acessibilidade e avaliação de regressões.
 
 Cada melhoria deve ter cenário de uso, entrada/saída, limites e evidência comparável. Especialistas novos exigem necessidade concreta; não ampliar o catálogo apenas por quantidade. Esta decisão orienta o backlog, não declara clientes integrados, inferência homologada ou rotinas agendadas.
+
+## Próximas retomadas
+
+[Plano diário e fila inicial](DAILY_PLAN.md). As novas issues de contrato e integração são somadas ao quadro sem redefinir estados escolhidos pelo proprietário.
