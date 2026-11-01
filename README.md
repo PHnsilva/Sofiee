@@ -226,3 +226,7 @@ No plano Free, o serviço pode adormecer por inatividade. O frontend mostra **Ac
 ## Licença
 
 Ainda não existe arquivo `LICENSE`; portanto não há permissão explícita de reutilização, modificação ou distribuição.
+
+## Organização do desenvolvimento
+
+Consulte o [Kanban e os objetivos](docs/KANBAN.md), o [fluxo por MCP/CLI](docs/AGENT_WORKFLOW.md) e [AGENTS.md](AGENTS.md). As propostas são revisadas pelo proprietário antes de integração/aceite.
