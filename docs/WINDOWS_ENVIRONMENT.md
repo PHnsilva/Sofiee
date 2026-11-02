@@ -67,7 +67,7 @@ The C: checkout used Node `v22.23.4` and Corepack-selected npm `10.8.2`. `npm ci
 - `npm run typecheck`: passed.
 - `npm test`: passed; 21 tests across backend and frontend.
 - `npm run build`: passed for backend and frontend.
-- `npm run format:check`: failed on 73 files in the current checkout; this delivery does not reformat unrelated product files.
+- `npm run format:check`: failed on 72 files in a clean worktree from `main` at `f4fa50e`; it failed on 73 files in the active checkout. This delivery does not reformat unrelated product files.
 - `npm run lint:desktop` and `npm run test:desktop`: could not run because `cargo` is unavailable.
 - Desktop build: not run because Rust and the MSVC build prerequisites are absent.
 
