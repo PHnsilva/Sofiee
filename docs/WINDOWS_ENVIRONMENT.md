@@ -72,4 +72,3 @@ The C: checkout used Node `v22.23.4` and Corepack-selected npm `10.8.2`. `npm ci
 - Desktop build: not run because Rust and the MSVC build prerequisites are absent.
 
 These results describe the local checkout on this date. Desktop validation and the existing formatting baseline remain open acceptance items.
-
