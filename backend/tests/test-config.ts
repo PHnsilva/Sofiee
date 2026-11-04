@@ -22,6 +22,7 @@ export function createTestConfig(overrides: Partial<AppConfig> = {}): AppConfig 
     port: 3_000,
     rateLimitMax: 60,
     requestTimeoutMs: 3_000,
+    trustedProxyCidrs: [],
     ...overrides,
   };
 }
