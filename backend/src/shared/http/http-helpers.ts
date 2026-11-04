@@ -4,10 +4,10 @@ import type { z } from 'zod';
 import { AppError } from '../errors/app-error.js';
 import { DeviceIdSchema } from '../schemas/api-schemas.js';
 
-export function parseRequest<TOutput, TInput>(
-  schema: z.ZodType<TOutput, z.ZodTypeDef, TInput>,
+export function parseRequest<TSchema extends z.ZodType>(
+  schema: TSchema,
   value: unknown,
-): TOutput {
+): z.output<TSchema> {
   const parsed = schema.safeParse(value);
   if (!parsed.success) {
     throw new AppError(400, 'INVALID_REQUEST', 'A requisição contém dados inválidos.');
