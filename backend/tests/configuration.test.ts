@@ -45,6 +45,9 @@ describe('configuration', () => {
     'proxy.example',
     '10.0.0.1/',
     '10.0.0.1/8/2',
+    ',127.0.0.1',
+    '127.0.0.1,',
+    '127.0.0.1,,10.20.0.0/16',
   ])('rejects unsafe or malformed proxy configuration: %s', (proxy) => {
     expect(() => parseEnvironment({ ...validEnvironment, TRUSTED_PROXY_CIDRS: proxy })).toThrow(
       'TRUSTED_PROXY_CIDRS',

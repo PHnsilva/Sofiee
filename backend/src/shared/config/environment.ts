@@ -58,9 +58,13 @@ export function parseEnvironment(environment: NodeJS.ProcessEnv): AppConfig {
     throw new Error('OWNER_ACCESS_KEY and AUTH_SIGNING_SECRET must be different.');
   }
 
-  const trustedProxyCidrs = parsed.TRUSTED_PROXY_CIDRS.split(',')
-    .map((entry) => entry.trim())
-    .filter(Boolean);
+  const trustedProxyConfiguration = parsed.TRUSTED_PROXY_CIDRS.trim();
+  const trustedProxyCidrs = trustedProxyConfiguration
+    ? trustedProxyConfiguration.split(',').map((entry) => entry.trim())
+    : [];
+  if (trustedProxyCidrs.some((entry) => entry.length === 0)) {
+    throw new Error('TRUSTED_PROXY_CIDRS must contain explicit IP addresses or bounded CIDRs.');
+  }
   for (const entry of trustedProxyCidrs) {
     const [address = '', prefix, extra] = entry.split('/');
     const family = isIP(address);
