@@ -30,7 +30,7 @@ Assistente pessoal de um único proprietário, com interface por texto e voz, pe
 
 ## Estado atual
 
-O MVP funcional inclui:
+O código do MVP inclui as capacidades abaixo. A execução com Gemini, a publicação e as ações nativas dependem da configuração e do ambiente; a presença do código não confirma que esses serviços estejam disponíveis.
 
 - frontend vanilla TypeScript, responsivo para telefone, desktop e modo carro;
 - PWA com manifest e service worker;
@@ -90,12 +90,16 @@ Detalhes específicos: [backend/README.md](backend/README.md), [frontend/README.
 
 ## Instalação local
 
-Pré-requisitos: Node.js `>=20.19 <23`, npm 10 e, somente para desktop, Rust com os pré-requisitos do Tauri 2.
+Pré-requisitos: Node.js 20.19 ou superior na série 20, ou 22.12 ou superior na série 22, e npm 10. O intervalo declarado na raiz é `>=20.19.0 <23`; as versões mínimas acima também atendem ao Vite do lockfile. Somente o desktop exige Rust e os pré-requisitos do Tauri 2.
 
 ```bash
-npm install
+git clone https://github.com/PHnsilva/Sofiie.git
+cd Sofiie
+npm ci
 cp backend/.env.example backend/.env
 ```
+
+No PowerShell, use `Copy-Item backend/.env.example backend/.env` em vez de `cp`.
 
 Gere valores reais e diferentes para `OWNER_ACCESS_KEY` e `AUTH_SIGNING_SECRET`:
 
@@ -106,10 +110,10 @@ node -e "console.log(require('node:crypto').randomBytes(32).toString('base64url'
 Gere o hash do PIN sem gravar o PIN no repositório:
 
 ```bash
-npm run security:hash-pin --workspace backend -- <PIN_NUMERICO>
+npm run security:hash-pin --workspace backend -- SEU_PIN_NUMERICO
 ```
 
-Coloque somente o hash em `OWNER_PIN_HASH`. Placeholders do exemplo são rejeitados na inicialização.
+Substitua `SEU_PIN_NUMERICO` pelo PIN escolhido; o argumento pode ficar no histórico do terminal. Coloque somente o hash em `OWNER_PIN_HASH`. Placeholders do exemplo são rejeitados na inicialização.
 
 Inicie a API e o frontend em terminais separados:
 
@@ -248,6 +252,10 @@ No plano Free, o serviço pode adormecer por inatividade. O frontend mostra **Ac
 - ações desktop exigem o Tauri aberto e aplicativos instalados;
 - Git status é somente leitura; commit, push, delete e instalação não existem;
 - não há histórico, memória permanente, lembretes ou múltiplos usuários.
+
+## Contribuição
+
+Abra uma branch e um pull request com escopo e verificações. Preserve o contrato das ações locais e não publique chaves, PINs ou arquivos `.env`. Os comandos web e nativos têm pré-requisitos distintos; informe quais verificações executou.
 
 ## Licença
 
