@@ -84,7 +84,7 @@ export async function createApp(options: CreateAppOptions): Promise<FastifyInsta
             },
           },
     requestTimeout: config.requestTimeoutMs + 5_000,
-    trustProxy: true,
+    trustProxy: config.trustedProxyCidrs.length === 0 ? false : [...config.trustedProxyCidrs],
   });
 
   await app.register(helmet, {
