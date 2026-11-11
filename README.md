@@ -1,3 +1,29 @@
+<!-- BEGIN CURRENT PLAN 2026-11-06 -->
+
+# Sofiee
+
+Assistente pessoal por texto/voz e consumidor dos quatro agentes, com ações permitidas em Windows, Android, iPhone e carro.
+
+**Planejamento vigente em 06/11/2026: até 5 sprints de entrega + S6 de validação extra/mudanças.** As issues e a matriz documentam todo o ciclo; não comprovam implementação, treinamento, integração ou aceite. Preservar código e PRs existentes. Somente Pedro revisa/aprova PRs e aceita issues.
+
+- [Requisitos e limites](docs/REQUIREMENTS.md)
+- [Arquitetura e fronteiras](docs/ARCHITECTURE_PLAN.md)
+- [Todas as sprints e issues](docs/DELIVERY_PLAN.md)
+- [Rastreabilidade](docs/TRACEABILITY.md)
+- [Execução semanal por dependências e PRs encadeados](docs/WEEKLY_EXECUTION.md)
+- [Retomada diária](docs/EXECUTION_PLAN.md)
+- [Contribuição](docs/CONTRIBUTION_POLICY.md)
+
+Busca encontra fontes em qualquer lugar pertinente e preserva filtros do usuário; Validação escolhe a base adequada ao tipo de dado e verifica as referências independentemente. Não aplicar uma whitelist científica global ao Busca. O modelo pode ser compartilhado; as ferramentas e critérios de domínio são específicos.
+
+Trabalho exclusivamente no C:, sem serviços pagos obrigatórios. SlothGeo é separado e adiado para 21/11, não um sexto agente desta rotina.
+<!-- END CURRENT PLAN 2026-11-06 -->
+
+**Implementação pausada até 21/11/2026.** Spotify Premium confirmado; Mac ausente e homologação iPhone/CarPlay autorizada para depois.
+
+<details>
+<summary>Descrição anterior da base e propostas — consultar com o estado vivo dos PRs</summary>
+
 # Sofiie
 
 Assistente pessoal de um único proprietário, com interface por texto e voz, personalidades públicas configuráveis, olhos animados e ações locais controladas por uma bridge desktop. O MVP é cloud-first: conversa e comandos de nuvem continuam disponíveis quando o PC do proprietário está desligado; ações locais exigem o aplicativo Tauri naquele dispositivo.
@@ -226,3 +252,9 @@ No plano Free, o serviço pode adormecer por inatividade. O frontend mostra **Ac
 ## Licença
 
 Ainda não existe arquivo `LICENSE`; portanto não há permissão explícita de reutilização, modificação ou distribuição.
+
+## Organização do desenvolvimento
+
+Consulte o [Kanban e os objetivos](docs/KANBAN.md), o [fluxo por MCP/CLI](docs/AGENT_WORKFLOW.md) e [AGENTS.md](AGENTS.md). As propostas são revisadas pelo proprietário antes de integração/aceite.
+
+</details>

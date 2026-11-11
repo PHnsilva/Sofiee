@@ -89,3 +89,6 @@ Desktop.ini
 .vercel/
 .netlify/
 .tauri/
+
+# Política compartilhada de agentes; AGENTS.local.md continua privado.
+!AGENTS.md
